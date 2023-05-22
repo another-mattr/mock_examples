@@ -8,7 +8,8 @@ import (
 
 func TestMyProgramReal(t *testing.T) {
 	// Instantiate MyProgram with the RealDependency (no mocking necessary)
-	mp := MyProgram{SomeDependency: &RealDependency{}}
+	dep := RealDependency{}
+	mp := MyProgram{SomeDependency: dep}
 
 	// Check console for the output
 	fmt.Println(mp.Action("hey"))
