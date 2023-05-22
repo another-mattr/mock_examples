@@ -7,22 +7,22 @@ import (
 )
 
 func TestMyProgramReal(t *testing.T) {
-	// Instantiate MyProgram with the RealDoThing (no mocking necessary)
-	mp := MyProgram{Foo: &RealDoThing{}}
+	// Instantiate MyProgram with the RealDependency (no mocking necessary)
+	mp := MyProgram{SomeDependency: &RealDependency{}}
 
 	// Check console for the output
 	fmt.Println(mp.Action("hey"))
 }
 
 func TestMyProgramMock(t *testing.T) {
-	//instantiate our MockDoThing
-	myMock := MockDoThing{}
+	//instantiate our MockDependency
+	myMock := MockDependency{}
 	//Register inputs/outputs for our mock
 	myMock.On("Do", "foo").Return("bar")
 	myMock.On("Do", "baz").Return("bozo")
 	myMock.On("Do", mock.Anything).Return("wildcard!!!")
 	//Pass our mock as a dependency to our program
-	mp := MyProgram{Foo: &myMock}
+	mp := MyProgram{SomeDependency: &myMock}
 
 	//Exercise the Action function (check console for results)
 	fmt.Println(mp.Action("foo"))

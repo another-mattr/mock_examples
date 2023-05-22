@@ -1,9 +1,9 @@
 package mypackage
 
 type MyProgram struct {
-	Foo DoThing
+	SomeDependency DoThing
 }
 
 func (mp MyProgram) Action(blah string) string {
-	return mp.Foo.Do(blah)
+	return mp.SomeDependency.Do(blah)
 }
