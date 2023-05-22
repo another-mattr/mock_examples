@@ -11,7 +11,7 @@ type DoThing interface {
 
 type RealDependency struct{}
 
-func (*RealDependency) Do(foo string) string {
+func (RealDependency) Do(foo string) string {
 	return fmt.Sprintf("REAL Dependency was called with arg: %s", foo)
 }
 
