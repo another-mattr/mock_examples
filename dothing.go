@@ -9,15 +9,12 @@ type DoThing interface {
 	Do(foo string) string
 }
 
-// The _real_ DoThing
-
 type RealDoThing struct{}
 
 func (*RealDoThing) Do(foo string) string {
 	return fmt.Sprintf("REAL DoThing %s", foo)
 }
 
-// The _mock_ DoThing
 type MockDoThing struct {
 	mock.Mock
 }
